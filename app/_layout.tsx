@@ -6,7 +6,8 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { CustomDrawerContent } from './customDrawerContent';
+import { CustomDrawerContent } from './drawer/customDrawerContent';
+import { CustomHeader } from './header/customHeader';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -29,7 +30,7 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Drawer drawerContent={CustomDrawerContent} >
+      <Drawer drawerContent={CustomDrawerContent} screenOptions={{ headerTitle: () => <CustomHeader/>}}>
         <Drawer.Screen name="(tabs)" options={{ headerShown: true }} />
         <Drawer.Screen name="+not-found" />
       </Drawer>
