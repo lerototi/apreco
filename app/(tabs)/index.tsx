@@ -25,7 +25,7 @@ export default function HomeScreen() {
             source={require("@/assets/images/partial-react-logo.png")}
           />
           <Card.Divider />
-          <Card.Title> Produtos Beneficiados</Card.Title>
+          <Card.Title> Produtos</Card.Title>
         </Card>
         <Card containerStyle={styles.item}>
           <Card.Image
@@ -33,17 +33,9 @@ export default function HomeScreen() {
             source={require("@/assets/images/partial-react-logo.png")}
           />
           <Card.Divider />
-          <Card.Title>Frutas</Card.Title>
+          <Card.Title>In natura</Card.Title>
         </Card>
         <Card.Divider />
-        <Card containerStyle={styles.item}>
-          <Card.Image
-            style={{ padding: 0 }}
-            source={require("@/assets/images/partial-react-logo.png")}
-          />
-          <Card.Divider />
-          <Card.Title>Legumes</Card.Title>
-        </Card>
         <Card containerStyle={styles.item}>
           <Card.Image
             style={{ padding: 0 }}
@@ -58,7 +50,7 @@ export default function HomeScreen() {
             source={require("@/assets/images/partial-react-logo.png")}
           />
           <Card.Divider />
-          <Card.Title>Cosmédicos</Card.Title>
+          <Card.Title>Cosméticos</Card.Title>
         </Card>
         <Card containerStyle={styles.item}>
           <Card.Image
@@ -66,7 +58,15 @@ export default function HomeScreen() {
             source={require("@/assets/images/partial-react-logo.png")}
           />
           <Card.Divider />
-          <Card.Title>{`Multirões \nAgrolecológicos`}</Card.Title>
+          <Card.Title>{`Multirões \nAgroecológicos`}</Card.Title>
+        </Card>
+        <Card containerStyle={styles.item}>
+          <Card.Image
+            style={{ padding: 0 }}
+            source={require("@/assets/images/partial-react-logo.png")}
+          />
+          <Card.Divider />
+          <Card.Title>{`CSA`}</Card.Title>
         </Card>
       </ThemedView>
     </ParallaxScrollView>

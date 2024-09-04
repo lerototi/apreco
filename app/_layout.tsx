@@ -37,7 +37,11 @@ export default function RootLayout() {
       <Drawer drawerContent={CustomDrawerContent}>
         <Drawer.Screen
           name="(tabs)"
-          options={{ headerShown: true, headerTitle: () => <CustomHeader /> }}
+          options={{
+            headerShown: true,
+            headerStyle: { height: 120 },
+            headerTitle: () => <CustomHeader />,
+          }}
         />
         <Drawer.Screen name="+not-found" />
       </Drawer>

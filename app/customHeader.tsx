@@ -1,7 +1,6 @@
 import { EvilIcons } from "@expo/vector-icons";
 import { Image } from "@rneui/base";
 import { View, Text, StyleSheet } from "react-native";
-import { blue } from "react-native-reanimated/lib/typescript/reanimated2/Colors";
 
 export function CustomHeader() {
   return (
@@ -11,7 +10,7 @@ export function CustomHeader() {
         <Text style={styles.title}>Apreço</Text>
         <Image
           source={require("@/assets/images/apreco_v2_transparent.png")}
-          style={{ width: 56, height: 56, marginLeft: 8 }}
+          style={{ width: 56, height: 56, marginLeft: 5 }}
         />
       </View>
       <EvilIcons name="search" size={36} />
@@ -28,6 +27,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    paddingTop: 25,
+    paddingTop: 30,
   },
 });
