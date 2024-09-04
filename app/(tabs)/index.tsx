@@ -1,50 +1,73 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform } from "react-native";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { HelloWave } from "@/components/HelloWave";
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
+import Card from "@rneui/themed/dist/Card";
 
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={{ light: "#FFF", dark: "#1D3D47" }}
+      headerHeight={150}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require("@/assets/images/icon.png")}
           style={styles.reactLogo}
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
+      }
+    >
+      <ThemedView style={styles.categoriesContainer}>
+        <Card containerStyle={styles.item}>
+          <Card.Image
+            style={{ padding: 0 }}
+            source={require("@/assets/images/partial-react-logo.png")}
+          />
+          <Card.Divider />
+          <Card.Title> Produtos Beneficiados</Card.Title>
+        </Card>
+        <Card containerStyle={styles.item}>
+          <Card.Image
+            style={{ padding: 0 }}
+            source={require("@/assets/images/partial-react-logo.png")}
+          />
+          <Card.Divider />
+          <Card.Title>Frutas</Card.Title>
+        </Card>
+        <Card.Divider />
+        <Card containerStyle={styles.item}>
+          <Card.Image
+            style={{ padding: 0 }}
+            source={require("@/assets/images/partial-react-logo.png")}
+          />
+          <Card.Divider />
+          <Card.Title>Legumes</Card.Title>
+        </Card>
+        <Card containerStyle={styles.item}>
+          <Card.Image
+            style={{ padding: 0 }}
+            source={require("@/assets/images/partial-react-logo.png")}
+          />
+          <Card.Divider />
+          <Card.Title>Sementes</Card.Title>
+        </Card>
+        <Card containerStyle={styles.item}>
+          <Card.Image
+            style={{ padding: 0 }}
+            source={require("@/assets/images/partial-react-logo.png")}
+          />
+          <Card.Divider />
+          <Card.Title>Cosmédicos</Card.Title>
+        </Card>
+        <Card containerStyle={styles.item}>
+          <Card.Image
+            style={{ padding: 0 }}
+            source={require("@/assets/images/partial-react-logo.png")}
+          />
+          <Card.Divider />
+          <Card.Title>{`Multirões \nAgrolecológicos`}</Card.Title>
+        </Card>
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -52,19 +75,29 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: "center",
     gap: 8,
+    flexDirection: "row",
   },
-  stepContainer: {
-    gap: 8,
+  categoriesContainer: {
     marginBottom: 8,
+    flexWrap: "wrap",
+    flexDirection: "row",
   },
   reactLogo: {
-    height: 178,
-    width: 290,
+    height: 228,
+    width: 360,
     bottom: 0,
     left: 0,
-    position: 'absolute',
+    position: "absolute",
+  },
+  item: {
+    minWidth: 80,
+    maxWidth: 110,
+    flexGrow: 2,
+    padding: 0,
+    margin: 6,
+    borderRadius: 10,
+    borderWidth: 0,
   },
 });
