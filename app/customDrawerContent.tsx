@@ -4,7 +4,7 @@ import {
   DrawerContentComponentProps,
 } from "@react-navigation/drawer";
 import { RouteParams, Routes, useRouter } from "expo-router";
-import { Linking, Text } from "react-native";
+import { Linking } from "react-native";
 
 export function CustomDrawerContent(drawerProps: DrawerContentComponentProps) {
   const router = useRouter();
@@ -19,6 +19,7 @@ export function CustomDrawerContent(drawerProps: DrawerContentComponentProps) {
 
   return (
     <DrawerContentScrollView>
+      //TODO alterar conteudo drawer menu
       <DrawerItem
         label="Help"
         onPress={() => Linking.openURL("https://mywebsite.com/help")}
@@ -31,7 +32,8 @@ export function CustomDrawerContent(drawerProps: DrawerContentComponentProps) {
             label={options.route.name}
             onPress={() => {
               console.log("chamei", options.route.name);
-              router.push(toHref(options.route.name as Routes));
+              //router.push(toHref(options.route.name as Routes));
+              drawerProps.navigation.navigate(options.route.name);
             }}
           />
         );

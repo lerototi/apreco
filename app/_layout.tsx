@@ -1,6 +1,7 @@
 import {
   DarkTheme,
   DefaultTheme,
+  DrawerActions,
   ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
@@ -11,8 +12,8 @@ import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { CustomDrawerContent } from "./customDrawerContent";
-import { CustomHeader } from "./customHeader";
-import { Icon } from "@rneui/base";
+import { useNavigation, useRouter, useSegments } from "expo-router";
+import { Button } from "react-native";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -32,24 +33,41 @@ export default function RootLayout() {
   if (!loaded) {
     return null;
   }
+  const router = useRouter();
+  const segment = useSegments();
+  const navigation = useNavigation();
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Drawer
-        screenOptions={{
-          headerLeft: () => null,
-        }}
-        drawerContent={(props) => <CustomDrawerContent {...props} />}
-      >
+      <Drawer drawerContent={(props) => <CustomDrawerContent {...props} />}>
         <Drawer.Screen
           name="(tabs)"
           options={{
-            headerLeftLabelVisible: false,
-            headerShown: true,
+            headerLeftLabelVisible: true,
+            headerShown: false,
             headerStyle: { height: 120 },
-            headerTitle: () => <CustomHeader />,
             drawerIcon: () => null,
             drawerLabel: () => null,
+            headerLeft: () => {
+              if (!router.canGoBack() || segment.some((s) => s === "root")) {
+                return (
+                  <Button
+                    onPress={() =>
+                      navigation.dispatch(DrawerActions.openDrawer())
+                    }
+                    title={"icon menu"}
+                  />
+                );
+              }
+            },
+          }}
+        />
+        <Drawer.Screen
+          name="stack"
+          options={{
+            drawerLabel: "Stack",
+            title: "overview",
+            headerShown: false,
           }}
         />
         <Drawer.Screen name="shop" />

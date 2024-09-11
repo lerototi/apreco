@@ -1,18 +1,32 @@
-import { Tabs } from "expo-router";
+import { Tabs, useNavigation } from "expo-router";
 import React from "react";
 
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { DrawerActions } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { CustomHeader } from "../customHeader";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-
+  const navigation = useNavigation();
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        headerShown: false,
+        headerShown: true,
+        headerLeft: () => {
+          return (
+            <TouchableOpacity
+              onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+            >
+              <Ionicons name={"menu"} size={24} color="black" />
+            </TouchableOpacity>
+          );
+        },
+        headerTitle: () => <CustomHeader />,
       }}
     >
       <Tabs.Screen
