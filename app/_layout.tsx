@@ -13,7 +13,6 @@ import "react-native-reanimated";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { CustomDrawerContent } from "./customDrawerContent";
 import { useNavigation, useRouter, useSegments } from "expo-router";
-import { Button } from "react-native";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -33,9 +32,6 @@ export default function RootLayout() {
   if (!loaded) {
     return null;
   }
-  const router = useRouter();
-  const segment = useSegments();
-  const navigation = useNavigation();
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
@@ -48,18 +44,6 @@ export default function RootLayout() {
             headerStyle: { height: 120 },
             drawerIcon: () => null,
             drawerLabel: () => null,
-            headerLeft: () => {
-              if (!router.canGoBack() || segment.some((s) => s === "root")) {
-                return (
-                  <Button
-                    onPress={() =>
-                      navigation.dispatch(DrawerActions.openDrawer())
-                    }
-                    title={"icon menu"}
-                  />
-                );
-              }
-            },
           }}
         />
         <Drawer.Screen

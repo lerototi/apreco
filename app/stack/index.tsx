@@ -6,7 +6,10 @@ export default function IndexStack() {
   return (
     <View>
       <Text>index</Text>
-      <Button title="go to home" onPress={() => router.push("/stack/two")} />
+      <Button
+        title="go to products"
+        onPress={() => router.push("/stack/products")}
+      />
     </View>
   );
 }

@@ -20,9 +20,10 @@ export default function TabLayout() {
         headerLeft: () => {
           return (
             <TouchableOpacity
+              style={{ padding: 12 }}
               onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
             >
-              <Ionicons name={"menu"} size={24} color="black" />
+              <Ionicons name={"menu"} size={28} color="black" />
             </TouchableOpacity>
           );
         },

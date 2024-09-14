@@ -1,6 +1,6 @@
 import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { Stack, useNavigation, useRouter, useSegments } from "expo-router";
-import { Button, Text } from "react-native";
+import { Button, Text, View } from "react-native";
 
 export default function StackRoot() {
   const router = useRouter();
@@ -14,13 +14,15 @@ export default function StackRoot() {
         headerLeft: ({ label }) => {
           if (!router.canGoBack() || segment.some((s) => s === ""))
             return (
-              <Button onPress={() => nav.openDrawer()} title={"icon menu"} />
+              <View style={{ padding: 10 }}>
+                <Button onPress={() => nav.openDrawer()} title={"icon menu"} />
+              </View>
             );
           return (
             <Button onPress={() => router.back()} title={label ?? "back"} />
           );
         },
       }}
-    />
+    ></Stack>
   );
 }

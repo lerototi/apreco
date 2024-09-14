@@ -5,6 +5,7 @@ import { View, Text, StyleSheet } from "react-native";
 export function CustomHeader() {
   return (
     <View style={styles.container}>
+      <View />
       <View>
         <Text style={styles.title}>Apreço</Text>
         <Image
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    width: 270,
+    width: 270, //TODO NOT FIX WIDTH
   },
   title: {
     fontSize: 24,
