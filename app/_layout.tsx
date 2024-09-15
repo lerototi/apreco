@@ -1,7 +1,6 @@
 import {
   DarkTheme,
   DefaultTheme,
-  DrawerActions,
   ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
@@ -12,7 +11,6 @@ import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { CustomDrawerContent } from "./customDrawerContent";
-import { useNavigation, useRouter, useSegments } from "expo-router";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -39,7 +37,7 @@ export default function RootLayout() {
         <Drawer.Screen
           name="(tabs)"
           options={{
-            headerLeftLabelVisible: true,
+            headerLeftLabelVisible: false,
             headerShown: false,
             headerStyle: { height: 120 },
             drawerIcon: () => null,
@@ -47,7 +45,7 @@ export default function RootLayout() {
           }}
         />
         <Drawer.Screen
-          name="stack"
+          name="search"
           options={{
             drawerLabel: "Stack",
             title: "overview",

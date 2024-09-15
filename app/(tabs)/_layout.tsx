@@ -23,7 +23,7 @@ export default function TabLayout() {
               style={{ padding: 12 }}
               onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
             >
-              <Ionicons name={"menu"} size={28} color="black" />
+              <Ionicons name={"menu"} size={26} color="black" />
             </TouchableOpacity>
           );
         },
