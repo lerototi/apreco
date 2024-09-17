@@ -1,12 +1,12 @@
-import { Image, StyleSheet, Platform } from "react-native";
+import { Image, StyleSheet, TouchableOpacity } from "react-native";
 
-import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import Card from "@rneui/themed/dist/Card";
+import { useRouter } from "expo-router";
 
 export default function HomeScreen() {
+  const router = useRouter();
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#FFF", dark: "#1D3D47" }}
@@ -20,12 +20,14 @@ export default function HomeScreen() {
     >
       <ThemedView style={styles.categoriesContainer}>
         <Card containerStyle={styles.item}>
-          <Card.Image
-            style={{ padding: 0 }}
-            source={require("@/assets/images/partial-react-logo.png")}
-          />
-          <Card.Divider />
-          <Card.Title> Produtos</Card.Title>
+          <TouchableOpacity onPress={() => router.push("/search")}>
+            <Card.Image
+              style={{ padding: 0 }}
+              source={require("@/assets/images/partial-react-logo.png")}
+            />
+            <Card.Divider />
+            <Card.Title> Produtos</Card.Title>
+          </TouchableOpacity>
         </Card>
         <Card containerStyle={styles.item}>
           <Card.Image
